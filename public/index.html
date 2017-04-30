@@ -1,0 +1,28 @@
+<!doctype html>
+<!-- Declares meanMapApp as the starting Angular module -->
+<html class="no-js" ng-app="spotifyDJApp">
+<head>
+    <meta charset="utf-8">
+    <title>Spotify DJ App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmCE2h3h14gdHP8tcoMh8MkOu79HdppPU"></script>
+    <!-- JS Source -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+</head>
+<body>
+<div class ="container">
+<h1>Spotify DJ App</h1>
+<div ng-controller="User">
+        <li ng-if="userFactory.userLoggedIn() === false"><a href="/login">Log in with Spotify</a></li>
+</div>
+</div>
+</body>
+</html>

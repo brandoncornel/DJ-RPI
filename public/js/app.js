@@ -7,11 +7,11 @@ angular.module('spotifyDJApp', [
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/splash/:accessToken/:refreshToken', {
 			templateUrl: 'partials/splash.html',
-			controller: 'User'
+			controller: 'Splash'
 		});
 		$routeProvider.when('/splash/', {
     		templateUrl: 'partials/splash.html',
-    		controller: 'User'
+    		controller: 'Splash'
   		});
 		$routeProvider.otherwise({redirectTo: '/splash'});
 

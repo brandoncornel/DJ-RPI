@@ -18,11 +18,13 @@
     <script src="js/controllers.js"></script>
 </head>
 <body>
-<div class ="container">
 <h1>Spotify DJ App</h1>
 <div ng-controller="User">
-        <li ng-if="userFactory.userLoggedIn() === false"><a href="/login">Log in with Spotify</a></li>
+<a ng-if="userFactory.userLoggedIn() === false" class="btn btn-primary" href="/login">Log in with Spotify</a>
+
 </div>
-</div>
+
+    <div ng-view></div>
+
 </body>
 </html>

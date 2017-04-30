@@ -32,8 +32,7 @@ angular.module('spotifyDJApp.services', [])
 			getSpotifyUserInfo: function() {
 				var _this = this;
 				$http.defaults.headers.common.Authorization = 'Bearer ' + this.getAccessToken();
-				$http.get('https://api.spotify.com/v1/me').success(function(response) {
-					console.log("RESPONSE: " + response);
+				$http.get('https://api.spotify.com/v1/me').then(function(response) {
 					// Update the stored data
 					_this.setCurrentUser(response);
 				});
@@ -44,7 +43,6 @@ angular.module('spotifyDJApp.services', [])
 				window.localStorage.removeItem('refresh_token');
 			},
 			setTokensAndPullUserInfo: function(accessToken, refreshToken) {
-				console.log("ACCESS TOKEN" + accessToken);
 				this.setAccessToken(accessToken);
 				this.setRefreshToken(refreshToken);
 				this.getSpotifyUserInfo();

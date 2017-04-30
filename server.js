@@ -6,6 +6,7 @@ var port            = process.env.PORT || 3000;
 var morgan          = require('morgan');
 var bodyParser      = require('body-parser');
 var methodOverride  = require('method-override');
+var cookieParser = require('cookie-parser')
 var app             = express();
 
 var client_id = '87086a6a07dc41da83e5889bf50a4216'; // Your client id
@@ -28,6 +29,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));  // parse applica
 app.use(methodOverride());
 
 //Routes
+app.use(cookieParser());
 require("./app/routes.js")(app);
 
 

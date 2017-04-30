@@ -56,8 +56,7 @@ module.exports = function(app) {
 	      });
 
 	      // we can also pass the tokens to the browser to make requests from there
-	      console.log('/splash/' + access_token + '/' + refresh_token);
-	      res.redirect('/splash/' + access_token + '/' + refresh_token);
+	      res.redirect('/#!/splash/' + access_token + '/' + refresh_token);
 	    }
 	  });
 	});

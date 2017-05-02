@@ -20,8 +20,8 @@
 <body>
 <h1>Spotify DJ App</h1>
 <div ng-controller="User">
-<a ng-if="userFactory.userLoggedIn() === false" class="btn btn-primary" href="/login">Log in with Spotify</a>
-
+<a ng-if="userLoggedIn() === false" class='btn btn-primary' href="/login">Log in with Spotify</a>
+<a ng-if="userLoggedIn() === true" class='btn btn-primary' href="/">{{username}}</a>
 </div>
 
     <div ng-view></div>

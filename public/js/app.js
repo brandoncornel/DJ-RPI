@@ -13,6 +13,10 @@ angular.module('spotifyDJApp', [
     		templateUrl: 'partials/splash.html',
     		controller: 'Splash'
   		});
+  		$routeProvider.when('/search/textbox/:accessToken/:refreshToken', {
+  			templateUrl: 'partials/textbox.html',
+  			controller: 'Textbox'
+  		});
 		$routeProvider.otherwise({redirectTo: '/splash'});
 
 }]);

@@ -19,9 +19,9 @@
 </head>
 <body>
 <h1>Spotify DJ App</h1>
-<div ng-controller="User">
-<a ng-if="userLoggedIn() === false" class='btn btn-primary' href="/login">Log in with Spotify</a>
-<a ng-if="userLoggedIn() === true" class='btn btn-primary' href="/">{{username}}</a>
+<div ng-controller="Splash">
+<a ng-if="loggedIn === false" class='btn btn-primary' href="/login">Log in with Spotify</a>
+<a ng-if="loggedIn === true" class='btn btn-primary' href="/" data-ng-bind="username"></a>
 </div>
 
     <div ng-view></div>

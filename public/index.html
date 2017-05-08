@@ -6,11 +6,11 @@
     <title>Spotify DJ App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSS -->
-    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmCE2h3h14gdHP8tcoMh8MkOu79HdppPU"></script>
     <!-- JS Source -->
-    <script src="../bower_components/jquery/dist/jquery.js"></script>
     <script src="../bower_components/angular/angular.js"></script>
     <script src="../bower_components/angular-route/angular-route.js"></script>
     <script src="js/app.js"></script>
@@ -21,7 +21,18 @@
 <h1>Spotify DJ App</h1>
 <div ng-controller="Splash">
 <a ng-if="loggedIn === false" class='btn btn-primary' href="/login">Log in with Spotify</a>
-<a ng-if="loggedIn === true" class='btn btn-primary' href="/" data-ng-bind="username"></a>
+<div ng-if="loggedIn === true" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+        <div class="btn-group">
+            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{{username}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#/logout">Logout</a></li>
+          </ul>
+        </div>
+        </li>
+      </ul>
+</div>
 </div>
 
     <div ng-view></div>

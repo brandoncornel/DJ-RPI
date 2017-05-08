@@ -4,7 +4,8 @@ angular.module('spotifyDJApp', [
 	'spotifyDJApp.services'
 	])
 
-	.config(['$routeProvider', function($routeProvider) {
+	.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+		$locationProvider.hashPrefix('');
 		$routeProvider.when('/splash/:accessToken/:refreshToken', {
 			templateUrl: 'partials/splash.html',
 			controller: 'Splash'
@@ -16,6 +17,10 @@ angular.module('spotifyDJApp', [
   		$routeProvider.when('/search/textbox/:accessToken/:refreshToken', {
   			templateUrl: 'partials/textbox.html',
   			controller: 'Textbox'
+  		});
+  		$routeProvider.when('/logout', {
+  			templateUrl: 'partials/splash.html',
+    		controller: 'UsersLogOut'
   		});
 		$routeProvider.otherwise({redirectTo: '/splash'});
 

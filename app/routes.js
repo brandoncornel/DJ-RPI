@@ -86,7 +86,7 @@ module.exports = function(app) {
 	        });
 
 	        // we can also pass the token to the browser to make requests from there
-	        res.redirect('/#!/splash/' + access_token + '/' + refresh_token);
+	        res.redirect('/#/splash/' + access_token + '/' + refresh_token);
 	      } else {
 	      		      res.redirect('/#!/splash/' + error);
 	      }

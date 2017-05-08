@@ -1,35 +1,32 @@
 angular.module('spotifyDJApp.controllers',[])
     .controller('Splash', ['$scope', '$routeParams', '$window', '$rootScope' , 'UserFactory', function($scope, $routeParams, $window, $rootScope, UserFactory) {
-
-        $scope.username = "NaN";
-        $scope.loggedIn = UserFactory.userLoggedIn();
         var currentUser;
-        if($scope.loggedIn){
-            currentUser = UserFactory.currentUser();
-
-        }else{
-            currentUser = null;
-        }
-
         $scope.$on('$routeChangeSuccess', function() {
         if ($routeParams.accessToken && $routeParams.refreshToken) {
             UserFactory.setTokensAndPullUserInfo($routeParams.accessToken, $routeParams.refreshToken, function(data){
             $scope.loggedIn = UserFactory.userLoggedIn();
             if($scope.loggedIn){
                 currentUser = UserFactory.currentUser();
-                $scope.$apply(function(){
-                    $scope.username = currentUser.email;
-                    console.log($scope.username);
-                })
+                $scope.username = currentUser.email;
+                console.log($scope.username);
+                $window.location.href = '/';
 
         }
             });  
         }
-            // $routeParams should be populated here
-        });
+            $scope.username = "NaN";
+        $scope.loggedIn = UserFactory.userLoggedIn();
         if($scope.loggedIn){
-                $scope.username = currentUser.email;
+            currentUser = UserFactory.currentUser();
+            $scope.username = currentUser.email;
+            console.log($scope.username);
+
+        }else{
+            currentUser = null;
         }
+        console.log($scope.loggedIn);
+
+        });
     }])
 
     .controller('User', ['$scope', '$rootScope', 'UserFactory', function($scope, $rootScope, UserFactory) {
@@ -54,7 +51,7 @@ angular.module('spotifyDJApp.controllers',[])
     }])
     .controller('UsersLogOut', ['$scope', '$location', 'UserFactory', function($scope, $location, UserFactory, RedditUserFactory) {
         UserFactory.clearUserData();
-        RedditUserFactory.clearUserData();
+        console.log("Logging Out");
         $location.path('#/splash')
     }]);
 

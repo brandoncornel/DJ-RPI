@@ -8,48 +8,44 @@ angular.module('spotifyDJApp.controllers',[])
             if($scope.loggedIn){
                 currentUser = UserFactory.currentUser();
                 $scope.username = currentUser.email;
-                console.log($scope.username);
                 $window.location.href = '/';
 
         }
             });  
         }
-            $scope.username = "NaN";
+        $scope.username = "NaN";
         $scope.loggedIn = UserFactory.userLoggedIn();
         if($scope.loggedIn){
             currentUser = UserFactory.currentUser();
             $scope.username = currentUser.email;
-            console.log($scope.username);
 
         }else{
             currentUser = null;
         }
-        console.log($scope.loggedIn);
-
         });
     }])
 
-    .controller('User', ['$scope', '$rootScope', 'UserFactory', function($scope, $rootScope, UserFactory) {
-
-        $scope.username = "NaN";
-
-        var currentUser = UserFactory.currentUser();
+    .controller('Search', ['$scope', '$rootScope', 'UserFactory', 'SearchFactory', function($scope, $rootScope, UserFactory, SearchFactory) {
+        var currentUser;
         $scope.loggedIn = UserFactory.userLoggedIn();
+        if($scope.loggedIn){
+            currentUser = UserFactory.currentUser();
+            $scope.username = currentUser.email;
 
-        $rootScope.$on("CallUserUserLoggedIn", function(){
-           $scope.userLoggedIn();
-        });
-       
+        }else{
+            currentUser = null;
+        }  
+        $scope.searchData = "";
 
-        $scope.userLoggedIn = function(){
-         
+        $scope.searchForSong = function(){
+            SearchFactory.search(this.searchData);
+            this.searchData="";
+
         }
 
-         
-
 
     }])
-    .controller('UsersLogOut', ['$scope', '$location', 'UserFactory', function($scope, $location, UserFactory, RedditUserFactory) {
+    .controller('UsersLogOut', ['$scope', '$location', 'UserFactory', function($scope, $location, UserFactory) {
         UserFactory.clearUserData();
         console.log("Logging Out");
         $location.path('#/splash')

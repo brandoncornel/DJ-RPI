@@ -58,5 +58,14 @@ angular.module('spotifyDJApp.services', [])
 
 			}
 		}
+	})
+	.factory('SearchFactory', function($http, $rootScope, $q){
+		return {
+			search : function(trackInfo){
+				console.log(trackInfo);
+			}
+
+		}
+
 	});
 

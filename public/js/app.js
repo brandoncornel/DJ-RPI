@@ -12,7 +12,7 @@ angular.module('spotifyDJApp', [
 		});
 		$routeProvider.when('/splash/', {
     		templateUrl: 'partials/splash.html',
-    		controller: 'Splash'
+    		controller: 'Search'
   		});
   		$routeProvider.when('/search/textbox/:accessToken/:refreshToken', {
   			templateUrl: 'partials/textbox.html',

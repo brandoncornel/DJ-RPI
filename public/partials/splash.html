@@ -1,6 +1,17 @@
+<div class ="container">
 <div class="jumbotron">
-	<div class="container">
-		<h1>Convert Anything to a Spotify Playlist</h1>
-		<p>Spotlistr is a collection of tools to help you generate Spotify playlists from many different sources!</p>
+		<h1>Collaborative DJ-ing with Spotify</h1>
+		<p>Have a say in what plays at the party!</p>
+	</div>
+	<div ng-if="loggedIn === true">
+	<h1>Search for an Artist</h1>
+
+	<form class="input-group" ng-submit="searchForSong()">
+    <input class="form-control" type="text" ng-model ="searchData"></input>
+       <span class="input-group-btn">
+        <button id="submit" class="btn btn-default" type="submit">Search</button>
+       </span>
+    </form>
+
 	</div>
 </div>

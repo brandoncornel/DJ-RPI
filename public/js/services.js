@@ -63,6 +63,16 @@ angular.module('spotifyDJApp.services', [])
 		return {
 			search : function(trackInfo){
 				console.log(trackInfo);
+				$.ajax({
+        			url: 'https://api.spotify.com/v1/search',
+		        data: {
+		            q: trackInfo,
+		            type: 'artist'
+		        },
+		        success: function (response) {
+		            console.log(response);
+		        }
+    			});
 			}
 
 		}
